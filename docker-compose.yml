@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  database:
+    image: mariadb
+    container_name: database
+    restart: always
+    ports:
+      - 1234:3306
+    volumes:
+      - mysqldata:/data/mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=ignite
+      - MYSQL_DATABASE=rentx
+
+volumes:
+  mysqldata:
+    driver: local
